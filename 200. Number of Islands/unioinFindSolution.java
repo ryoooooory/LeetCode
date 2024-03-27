@@ -16,7 +16,7 @@ class Solution {
             }
         }
 
-        public int root(int fieldIndex) {
+        private int root(int fieldIndex) {
             if (fieldIndex == parent[fieldIndex]) {
                 return fieldIndex;
             } else {
