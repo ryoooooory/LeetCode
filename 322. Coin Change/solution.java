@@ -17,18 +17,19 @@ class Solution {
         }
 
         for (int currentSum = 1; currentSum <= amount; currentSum++) {
-            if (minimumSteps[currentSum] != 0) {
-                for (int coin : coins) {
-                    int nextLongSum = currentSum + coin;
-                    if (nextLongSum <= amount && currentSum <= Integer.MAX_VALUE - coin) {
-                        int nextSum = nextLongSum;
-                        if (minimumSteps[nextSum] == 0) {
-                            minimumSteps[nextSum] = minimumSteps[currentSum] + 1;
-                        } else {
-                            minimumSteps[nextSum] =
-                                    Math.min(minimumSteps[nextSum], minimumSteps[currentSum] + 1);
-                        }
-                    }
+            if (minimumSteps[currentSum] == 0) {
+                continue;
+            }
+            for (int coin : coins) {
+                int nextLongSum = currentSum + coin;
+                if (amount < nextLongSum || currentSum > Integer.MAX_VALUE - coin) {
+                    continue;
+                }
+                if (minimumSteps[nextSum] == 0) {
+                    minimumSteps[nextSum] = minimumSteps[currentSum] + 1;
+                } else {
+                    minimumSteps[nextSum] =
+                            Math.min(minimumSteps[nextSum], minimumSteps[currentSum] + 1);
                 }
             }
         }
