@@ -21,8 +21,8 @@ class Solution {
                 continue;
             }
             for (int coin : coins) {
-                int nextLongSum = currentSum + coin;
-                if (amount < nextLongSum || currentSum > Integer.MAX_VALUE - coin) {
+                int nextSum = currentSum + coin;
+                if (amount < nextSum || currentSum > Integer.MAX_VALUE - coin) {
                     continue;
                 }
                 if (minimumSteps[nextSum] == 0) {
