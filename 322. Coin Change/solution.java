@@ -13,14 +13,9 @@ class Solution {
         }
         int[] minimumSteps = new int[amount + 1];
         Arrays.fill(minimumSteps, Integer.MAX_VALUE);
-        for (int coin : coins) {
-            if (coin <= amount) {
-                minimumSteps[coin] = 1;
-            }
-        }
         minimumSteps[0] = 0;
 
-        for (int currentSum = 1; currentSum <= amount; currentSum++) {
+        for (int currentSum = 0; currentSum <= amount; currentSum++) {
             if (minimumSteps[currentSum] == Integer.MAX_VALUE) {
                 continue;
             }
