@@ -22,35 +22,35 @@ class Solution {
     }
 
     private boolean isValidParenethesisInProcess(String string) {
-        int notClosedleftParenethesisCount = 0;
+        int notClosedLeftParenethesisCount = 0;
         for (char c : string.toCharArray()) {
             if (c == '(') {
-                notClosedleftParenethesisCount++;
+                notClosedLeftParenethesisCount++;
             } else {
-                notClosedleftParenethesisCount--;
+                notClosedLeftParenethesisCount--;
             }
 
-            if (notClosedleftParenethesisCount < 0) {
+            if (notClosedLeftParenethesisCount < 0) {
                 return false;
             }
         }
-        return notClosedleftParenethesisCount >= 0;
+        return notClosedLeftParenethesisCount >= 0;
     }
 
     private boolean isValidParenethesis(String string) {
-        int notClosedleftParenethesisCount = 0;
+        int notClosedLeftParenethesisCount = 0;
         for (char c : string.toCharArray()) {
             if (c == '(') {
-                notClosedleftParenethesisCount++;
+                notClosedLeftParenethesisCount++;
             } else {
-                notClosedleftParenethesisCount--;
+                notClosedLeftParenethesisCount--;
             }
 
-            if (notClosedleftParenethesisCount < 0) {
+            if (notClosedLeftParenethesisCount < 0) {
                 return false;
             }
         }
-        return notClosedleftParenethesisCount == 0;
+        return notClosedLeftParenethesisCount == 0;
     }
 
 }

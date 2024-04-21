@@ -1,29 +1,37 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
         List<String> allParentheses = new ArrayList<>();
-        Queue<String> parenthesisCandidate = new LinkedList<>();
-        Queue<Integer> unClosedleftParentheses = new LinkedList<>();
-        parenthesisCandidate.add("");
-        unClosedleftParentheses.add(0);
+        Queue<ParenthesisState> parenthesisCandidate = new LinkedList<>();
+        parenthesisCandidate.add(new ParenthesisState("", 0));
 
         while (!parenthesisCandidate.isEmpty()) {
-            String current = parenthesisCandidate.poll();
-            int currentLeftParenthesisCount = unClosedleftParentheses.poll();
+            ParenthesisState currentState = parenthesisCandidate.poll();
+            String curerntString = currentState.str;
+            int numCurrentUnClosedLeftParenthesis = currentState.numUnClosedLeftParenthesis;
 
-            if (current.length() == 2 * n) {
-                allParentheses.add(current);
+            if (curerntString.length() == 2 * n) {
+                allParentheses.add(currentState.str);
                 continue;
             }
-            if (currentLeftParenthesisCount < 2 * n - current.length()) {
-                parenthesisCandidate.add(current + "(");
-                unClosedleftParentheses.add(currentLeftParenthesisCount + 1);
+            if (numCurrentUnClosedLeftParenthesis < 2 * n - curerntString.length()) {
+                parenthesisCandidate.add(new ParenthesisState(curerntString + "(",
+                        numCurrentUnClosedLeftParenthesis + 1));
             }
-            if (0 < currentLeftParenthesisCount) {
-                parenthesisCandidate.add(current + ")");
-                unClosedleftParentheses.add(currentLeftParenthesisCount - 1);
+            if (0 < numCurrentUnClosedLeftParenthesis) {
+                parenthesisCandidate.add(new ParenthesisState(curerntString + ")",
+                        numCurrentUnClosedLeftParenthesis - 1));
             }
         }
         return allParentheses;
     }
 
+    class ParenthesisState {
+        String str;
+        int numUnClosedLeftParenthesis;
+
+        ParenthesisState(String str, int numUnClosedLeftParenthesis) {
+            this.str = str;
+            this.numUnClosedLeftParenthesis = numUnClosedLeftParenthesis;
+        }
+    }
 }
