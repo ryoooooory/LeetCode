@@ -7,7 +7,7 @@ class Solution {
         while (!parenthesisCandidate.isEmpty()) {
             ParenthesisState currentState = parenthesisCandidate.poll();
             String curerntString = currentState.str;
-            int numCurrentUnClosedLeftParenthesis = currentState.numUnClosedLeftParenthesis;
+            int numCurrentUnClosedLeftParenthesis = currentState.numUnclosedLeftParenthesis;
 
             if (curerntString.length() == 2 * n) {
                 allParentheses.add(currentState.str);
@@ -27,11 +27,11 @@ class Solution {
 
     class ParenthesisState {
         String str;
-        int numUnClosedLeftParenthesis;
+        int numUnclosedLeftParenthesis;
 
-        ParenthesisState(String str, int numUnClosedLeftParenthesis) {
+        ParenthesisState(String str, int numUnclosedLeftParenthesis) {
             this.str = str;
-            this.numUnClosedLeftParenthesis = numUnClosedLeftParenthesis;
+            this.numUnclosedLeftParenthesis = numUnclosedLeftParenthesis;
         }
     }
 }
