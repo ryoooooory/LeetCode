@@ -9,7 +9,8 @@ class Solution {
     }
 
 
-    private void insertParenetheses(int n, StringBuilder current, Set<String> resultParenetheses, Set<String> pastState) {
+    private void insertParenetheses(int n, StringBuilder current, Set<String> resultParenetheses,
+            Set<String> pastState) {
         if (n == 0) {
             resultParenetheses.add(new String(current));
             return;
@@ -18,9 +19,9 @@ class Solution {
             return;
         }
         pastState.add(new String(current));
-        for(int i = 0; i <= current.length(); i++) {
+        for (int i = 0; i <= current.length(); i++) {
             current.insert(i, "(");
-            for(int j = i + 1; j <= current.length(); j++) {
+            for (int j = i + 1; j <= current.length(); j++) {
                 current.insert(j, ")");
                 insertParenetheses(n - 1, current, resultParenetheses, pastState);
                 current.delete(j, j + 1);
