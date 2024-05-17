@@ -20,3 +20,7 @@ https://github.com/tayzarnw/LeetCode/pull/4
 条件式の冗長性をなくすために、While の中の少し複雑な処理を関数として外出しするようにした
 参考にしたもの
 https://github.com/tayzarnw/LeetCode/pull/4#issuecomment-2038618765
+
+# RefactoredSolutionInfiniteLoop
+
+条件式の冗長性をなくすために、無限ループを用いて変形しました！
