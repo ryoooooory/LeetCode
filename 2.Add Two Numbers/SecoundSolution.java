@@ -14,7 +14,7 @@ public class SecoundSolution {
         ListNode node = new ListNode(sum % 10);
         ListNode nextL1 = l1 != null ? l1.next : null;
         ListNode nextL2 = l2 != null ? l2.next : null;
-        node.next = addTwoNumbers(nextL1, nextL2, carry);
+        node.next = addTwoNumbersHelper(nextL1, nextL2, carry);
         return node;
     }
 }
