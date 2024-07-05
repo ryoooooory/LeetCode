@@ -40,11 +40,11 @@ class MinHeap {
         return (index - 1) / 2;
     }
 
-    private int leftChildIndex(int index) {
+    private int leftIndex(int index) {
         return 2 * index + 1;
     }
 
-    private int rightChildIndex(int index) {
+    private int rightIndex(int index) {
         return 2 * index + 2;
     }
 
@@ -63,13 +63,13 @@ class MinHeap {
 
     private void heapifyDown(int index) {
         int minIndex = index;
-        int leftChildIndex = leftChildIndex(index);
-        if (leftChildIndex < data.size() && data.get(leftChildIndex) < data.get(minIndex)) {
-            minIndex = leftChildIndex;
+        int leftIndex = leftIndex(index);
+        if (leftIndex < data.size() && data.get(leftIndex) < data.get(minIndex)) {
+            minIndex = leftIndex;
         }
-        int rightChildIndex = rightChildIndex(index);
-        if (rightChildIndex < data.size() && data.get(rightChildIndex) < data.get(minIndex)) {
-            minIndex = rightChildIndex;
+        int rightIndex = rightIndex(index);
+        if (rightIndex < data.size() && data.get(rightIndex) < data.get(minIndex)) {
+            minIndex = rightIndex;
         }
         if (index != minIndex) {
             swap(index, minIndex);
