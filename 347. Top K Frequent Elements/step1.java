@@ -6,53 +6,53 @@ import java.util.Map;
 
 public class FirstSolution {
   public int[] topKFrequent(int[] nums, int k) {
-    Map<Integer, Integer> frequency = new HashMap<>();
+    Map<Integer, Integer> numToCount = new HashMap<>();
     for (int num : nums) {
-      frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+      numToCount.put(num, numToCount.getOrDefault(num, 0) + 1);
     }
 
-    List<Map.Entry<Integer, Integer>> frequencyList = new ArrayList<>(frequency.entrySet());
-    frequencyList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-    int[] topKFrequencyElements = new int[k];
+    List<Map.Entry<Integer, Integer>> numToCountList = new ArrayList<>(numToCount.entrySet());
+    numToCountList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+    int[] topKnumToCountElements = new int[k];
     for (int i = 0; i < k; i++) {
-      topKFrequencyElements[i] = frequencyList.get(i).getKey();
+      topKnumToCountElements[i] = numToCountList.get(i).getKey();
     }
-    return topKFrequencyElements;
+    return topKnumToCountElements;
   }
 
   // priority queue version - 1
   public int[] topKFrequent(int[] nums, int k) {
-    Map<Integer, Integer> frequency = new HashMap<>();
+    Map<Integer, Integer> numToCount = new HashMap<>();
     for (int num : nums) {
-      frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+      numToCount.put(num, numToCount.getOrDefault(num, 0) + 1);
     }
-    PriorityQueue<Map.Entry<Integer, Integer>> frequencyQueue =
+    PriorityQueue<Map.Entry<Integer, Integer>> numToCountQueue =
         new PriorityQueue<>((a, b) -> b.getValue().compareTo(a.getValue()));
-    frequencyQueue.addAll(frequency.entrySet());
+    numToCountQueue.addAll(numToCount.entrySet());
     int[] topKFrequentElements = new int[k];
     for (int i = 0; i < k; i++) {
-      topKFrequentElements[i] = (int) frequencyQueue.poll().getKey();
+      topKFrequentElements[i] = (int) numToCountQueue.poll().getKey();
     }
     return topKFrequentElements;
   }
 
   // priority queue version - 2
   public int[] topKFrequent(int[] nums, int k) {
-    Map<Integer, Integer> frequency = new HashMap<>();
+    Map<Integer, Integer> numToCount = new HashMap<>();
     for (int num : nums) {
-      frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+      numToCount.put(num, numToCount.getOrDefault(num, 0) + 1);
     }
-    PriorityQueue<Map.Entry<Integer, Integer>> frequencyQueue =
+    PriorityQueue<Map.Entry<Integer, Integer>> numToCountQueue =
         new PriorityQueue<>((a, b) -> a.getValue().compareTo(b.getValue()));
-    for (Map.Entry entry : frequency.entrySet()) {
-      frequencyQueue.add(entry);
-      if (k < frequencyQueue.size()) {
-        frequencyQueue.poll();
+    for (Map.Entry entry : numToCount.entrySet()) {
+      numToCountQueue.add(entry);
+      if (k < numToCountQueue.size()) {
+        numToCountQueue.poll();
       }
     }
     int[] topKFrequentElements = new int[k];
     for (int i = 0; i < k; i++) {
-      topKFrequentElements[i] = (int) frequencyQueue.poll().getKey();
+      topKFrequentElements[i] = (int) numToCountQueue.poll().getKey();
     }
     return topKFrequentElements;
   }
