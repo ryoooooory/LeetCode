@@ -17,29 +17,29 @@ class Solution {
 
     private void quickSelect(int left, int right, List<Map.Entry<Integer, Integer>> frequency, int target) {
         while(left < right) {
-            int pivot = left + (right - left) / 2;
-            int count = partition(left, right, pivot, frequency);
-            if (count == target) {
+            int pivotIndex = left + (right - left) / 2;
+            pivotIndex = partition(left, right, pivotIndex, frequency);
+            if (pivotIndex == target) {
                 return;
-            } else if (count < target) {
-                left = count + 1;
+            } else if (pivotIndex < target) {
+                left = pivotIndex + 1;
             } else {
-                right = count - 1;
+                right = pivotIndex - 1;
             }
         }
     }
 
-    private int partition(int left, int right, int pivot, List<Map.Entry<Integer, Integer>> frequency) {
-        int leftCount = left;
-        int pivotValue = frequency.get(pivot).getValue();
-        Collections.swap(frequency, right, pivot);
+    private int partition(int left, int right, int pivotIndex, List<Map.Entry<Integer, Integer>> frequency) {
+        int storeIndex = left;
+        int pivotValue = frequency.get(pivotIndex).getValue();
+        Collections.swap(frequency, right, pivotIndex);
         for(int i = left; i < right; i++) {
             if (frequency.get(i).getValue() < pivotValue) {
-                Collections.swap(frequency, i, leftCount);
-                leftCount++;
+                Collections.swap(frequency, i, storeIndex);
+                storeIndex++;
             }
         }
-        Collections.swap(frequency, leftCount, right);
-        return leftCount;
+        Collections.swap(frequency, storeIndex, right);
+        return storeIndex;
     }
 }
