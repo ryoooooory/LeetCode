@@ -11,11 +11,11 @@ public class FirstSolution {
       numToCount.put(num, numToCount.getOrDefault(num, 0) + 1);
     }
 
-    List<Map.Entry<Integer, Integer>> numToCountList = new ArrayList<>(numToCount.entrySet());
-    numToCountList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+    List<Map.Entry<Integer, Integer>> frequency = new ArrayList<>(numToCount.entrySet());
+    frequency.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
     int[] topKnumToCountElements = new int[k];
     for (int i = 0; i < k; i++) {
-      topKnumToCountElements[i] = numToCountList.get(i).getKey();
+      topKnumToCountElements[i] = frequency.get(i).getKey();
     }
     return topKnumToCountElements;
   }
