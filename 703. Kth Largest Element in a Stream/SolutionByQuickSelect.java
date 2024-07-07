@@ -1,12 +1,12 @@
 import java.util.List;
 
 public class SolutionByQuickSelect {
-    List<Integer> data;
-    int kth;
+    private List<Integer> data;
+    private int kthIndex;
 
-    public KthLargest(int k, int[] nums) {
+    public kthLargest(int k, int[] nums) {
         data = new ArrayList<>();
-        kth = k - 1;
+        kthIndex = k - 1;
         for (int num : nums) {
             data.add(num);
         }
@@ -23,9 +23,9 @@ public class SolutionByQuickSelect {
         }
         int pivotIndex = left + (right - left) / 2;
         pivotIndex = partition(left, right, pivotIndex);
-        if (kth == pivotIndex) {
-            return data.get(kth);
-        } else if (kth < pivotIndex) {
+        if (kthIndex == pivotIndex) {
+            return data.get(kthIndex);
+        } else if (kthIndex < pivotIndex) {
             return quickSelect(left, pivotIndex - 1);
         } else {
             return quickSelect(pivotIndex + 1, right);
