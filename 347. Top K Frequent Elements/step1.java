@@ -13,11 +13,11 @@ public class FirstSolution {
 
     List<Map.Entry<Integer, Integer>> frequency = new ArrayList<>(numToCount.entrySet());
     frequency.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-    int[] topKnumToCountElements = new int[k];
+    int[] topKFrequentElements = new int[k];
     for (int i = 0; i < k; i++) {
-      topKnumToCountElements[i] = frequency.get(i).getKey();
+      topKFrequentElements[i] = frequency.get(i).getKey();
     }
-    return topKnumToCountElements;
+    return topKFrequentElements;
   }
 
   // priority queue version - 1
