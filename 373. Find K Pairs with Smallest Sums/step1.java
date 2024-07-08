@@ -9,7 +9,7 @@ class Solution {
         minSums.add(new int[] {nums1[0] + nums2[0], 0, 0});
         visited.add(new Pair<Integer, Integer>(0, 0));
 
-        while(kSmallestPairs.size() < k && !minSums.isEmpty()) {
+        while(kSmallestPairs.size() < k) {
             int[] currentMinPair = minSums.poll();
             int index1 = currentMinPair[1];
             int index2 = currentMinPair[2];
