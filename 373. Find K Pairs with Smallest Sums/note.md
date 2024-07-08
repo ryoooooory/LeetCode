@@ -13,4 +13,10 @@
 
 ### step2-2
 参考：[https://github.com/seal-azarashi/leetcode/pull/10/files](https://github.com/kazukiii/leetcode/pull/11/files)
-実装していて、Pairを使わない場合は独自で定義したほうが見やすいなあとおもっていて同様のコメントが上記のPRでもあったので、独自定義する方針でも実装してみた。
+実装していて、indexまわりをまとめて独自で定義したほうが見やすいなあとおもっていて同様のコメントが上記のPRでもあったので、独自定義する方針でも実装してみた。
+
+## メモ
+Loopの表現についてfor, whileの議論が他のPRのコメントでもあったが、宣言的か手続的のどちらがいいかというものがあり、今回の問題だと個人的にはどちらでもそこまで変わらないかなと思ったが問題や条件によってはどちらが自然かというのを常に意識したい。
+また問題文の制約次第ではループのなかでエラーとなる可能性があることも意識したい。
+https://github.com/sakupan102/arai60-practice/pull/11#discussion_r1622031840
+https://github.com/fhiyo/leetcode/pull/13/files
