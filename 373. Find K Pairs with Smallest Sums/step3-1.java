@@ -3,7 +3,6 @@ class Solution {
         int length1 = nums1.length;
         int length2 = nums2.length;
         List<List<Integer>> kSmallestPairs = new ArrayList<>();
-        Set<Pair<Integer, Integer>> visited = new HashSet<>();
 
         PriorityQueue<int[]> minSums = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         minSums.add(new int[] { nums1[0] + nums2[0], 0, 0 });
