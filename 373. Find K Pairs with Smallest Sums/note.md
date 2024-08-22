@@ -25,3 +25,13 @@ Loopの表現についてfor, whileの議論が他のPRのコメントでもあ�
 また問題文の制約次第ではループのなかでエラーとなる可能性があることも意識したい。
 https://github.com/sakupan102/arai60-practice/pull/11#discussion_r1622031840
 https://github.com/fhiyo/leetcode/pull/13/files
+
+## step3
+いただいたコメントを元にアルゴリズムを修正した。
+### step3-1
+具体的には、
+・２つの配列について片方の配列のIndexしか動かさない
+・動かす方のindex = 0の時のみもう片方の配列のについてその配列のIndex+1の要素をQueueに追加
+することで重複がないようにおこなうことができる。
+
+### step3-2
