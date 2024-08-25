@@ -5,11 +5,11 @@ class Solution {
         Arrays.sort(nums2);
         int index1 = 0;
         int index2 = 0;
-        Set<Integer> duplicates = new HashSet<>();
+        Set<Integer> elementsInNums1AndNums2 = new HashSet<>();
 
         while(index1 < nums1.length && index2 < nums2.length) {
             if (nums1[index1] == nums2[index2]) {
-                duplicates.add(nums1[index1]);
+                elementsInNums1AndNums2.add(nums1[index1]);
                 index1++;
                 index2++;
             } else if (nums1[index1] < nums2[index2]) {
@@ -18,9 +18,9 @@ class Solution {
                 index2++;
             }
         }
-        int[] intersection = new int[duplicates.size()];
+        int[] intersection = new int[elementsInNums1AndNums2.size()];
         int index = 0;
-        for(int num : duplicates) {
+        for(int num : elementsInNums1AndNums2) {
             intersection[index++] = num;
         }
         return intersection;
