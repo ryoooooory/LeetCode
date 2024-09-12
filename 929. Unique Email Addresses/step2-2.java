@@ -3,7 +3,7 @@ class Solution {
     public int numUniqueEmails(String[] emails) {
         Set<String> uniqueEmails = new HashSet<>();
         for (String email : emails) {
-            StringBuilder convertedEmail = new StringBuilder();
+            StringBuilder formattedEmail = new StringBuilder();
             for (int i = 0; i < email.length(); i++) {
                 char c = email.charAt(i);
                 if (c == '.') {
@@ -11,20 +11,20 @@ class Solution {
                 } else if (c == '+' || c == '@') {
                     break;
                 } else {
-                    convertedEmail.append(c);
+                    formattedEmail.append(c);
                 }
             }
-            StringBuilder convertedDomain = new StringBuilder();
+            StringBuilder formattedDomain = new StringBuilder();
             for (int i = email.length() - 1; i >= 0; i--) {
                 char c = email.charAt(i);
-                convertedDomain.append(c);
+                formattedDomain.append(c);
                 if (c == '@') {
                     break;
                 }
             }
-            convertedDomain = convertedDomain.reverse();
-            convertedEmail.append(convertedDomain);
-            uniqueEmails.add(convertedEmail.toString());
+            formattedDomain = formattedDomain.reverse();
+            formattedEmail.append(formattedDomain);
+            uniqueEmails.add(formattedEmail.toString());
         }
         return uniqueEmails.size();
     }
