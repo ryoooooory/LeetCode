@@ -32,3 +32,7 @@ StringBuilderを使うと基本的にバッファが十分であればO(1)で追
 ということで頻繁に文字列操作を行う時は特にStringBuilderのがよい。  
 (ちなみに互換性があるものとしてStringBufferというものもあるが基本的にはStringBuilderが推奨されるらしい。ただ複数スレッドで文字列操作する時はスレッドセーフなStringBufferを使ったほうがいい。)  
 https://docs.oracle.com/javase/jp/8/docs/api/java/lang/StringBuilder.html
+
+## その他
+https://github.com/seal-azarashi/leetcode/pull/14/files
+で議論されている通り、面接（本当は現場）だったらこの実装をどこでするのかを考慮したい。実際はDB内でのメアドのユニーク数を見るみたいなことが問題文から連想されるので、メアド登録時だったらバリデーションいるよねみたいな会話もしたい。
