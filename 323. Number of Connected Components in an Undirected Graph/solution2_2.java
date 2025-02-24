@@ -25,7 +25,7 @@ public class solution2_2 {
   private void checkConnectedNode(
       int[][] edges, List<Integer>[] graph, boolean[] visited, int node) {
     visited[node] = true;
-    Queue<Integer> connectedNode = new LinkedList<Integer>();
+    Queue<Integer> connectedNode = new ArrayDeque<Integer>();
     connectedNode.add(node);
     while (!connectedNode.isEmpty()) {
       int current = connectedNode.poll();
