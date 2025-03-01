@@ -29,6 +29,10 @@ UnionFind での解法。
 ・https://discord.com/channels/1084280443945353267/1084283898617417748/1295302973186117684）
 ・https://algo-method.com/descriptions/132
 
+# solution2_4
+
+コメントいただいたものを反映したもの。特に変数名やループ記法について修正した。
+
 # Union find
 
 ## 概要
