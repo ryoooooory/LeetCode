@@ -1,4 +1,7 @@
-/** */
+/**
+ * 他のPRなどを参照した解法 https://github.com/olsen-blue/Arai60/pull/22/filesなどを参照
+ * BFSで階層についてを新しくQueueを用いることで管理したもの。（https://github.com/ryoooooory/LeetCode/pull/24と同様）
+ */
 public class solution2_1 {
   public int minDepth(TreeNode root) {
     if (root == null) {
