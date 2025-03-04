@@ -1,6 +1,6 @@
 // 自力解法。10分くらいでAC
 // 時間計算量: O(n) n:２つの木の要素数、空間計算量: O(n)
-// 左の木と右の木について処理はほぼ一緒なので関数化したが、left, rightによって思いつかなかった。
+// 左の木と右の木について処理はほぼ一緒なので関数化したかったが、left, rightが微妙に厄介で思いつかなかった。
 public class solution1_1 {
   public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
     if (root1 == null && root2 == null) {
