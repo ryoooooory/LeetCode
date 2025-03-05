@@ -6,8 +6,8 @@ import java.util.Set;
 
 public class solution2_4 {
   /**
-   * solution2_1と同様に、効率的に計算するために小文字英単語（26文字）で現在の単語を変えて、wordListにあるかを見ながら探索していく解法 計算量としては、O(n * n *
-   * m)
+   * solution2_1と同様に、効率的に計算するために小文字英単語（26文字）で現在の単語を変えて、wordListにあるかを見ながら探索していく解法 計算量としては、O(n * m)
+   * 探索は最大でwordListの要素分(=m)、ループの中ではa-zで定数回StringBuilderを作る処理(=O(n))かかるので
    *
    * <p>https://github.com/Ryotaro25/leetcode_first60/pull/22/files
    * https://github.com/Hurukawa2121/leetcode/pull/20/files を参考に実装した。
@@ -22,8 +22,8 @@ public class solution2_4 {
     }
     Set<String> wordSet = new HashSet<>(wordList);
     while (!transformWords.isEmpty()) {
-      int adjacentsCount = transformWords.size();
-      for (int i = 0; i < adjacentsCount; i++) {
+      int adjacentWordCount = transformWords.size();
+      for (int i = 0; i < adjacentWordCount; i++) {
         String currentWord = transformWords.poll();
         if (currentWord.equals(endWord)) {
           return sequenceLength;
