@@ -23,6 +23,20 @@ public class solution1_2 {
       if (currentNode.right != null) {
         rootSum.offer(new RootSum(currentNode.right, currentSum + currentNode.right.val));
       }
+
+if (currentNode.left != null || currentNode.right != null) {
+if (currentNode.left != null) {
+rootSum.offer(new RootSum(currentNode.left, currentSum + currentNode.left.val));
+}
+if (currentNode.right != null) {
+rootSum.offer(new RootSum(currentNode.right, currentSum + currentNode.right.val));
+}
+continue;
+}
+// リーフノードで目標の合計値なら true
+if (currentSum == targetSum) {
+return true;
+｝
     }
     return false;
   }
