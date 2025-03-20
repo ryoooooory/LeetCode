@@ -1,10 +1,10 @@
-/** DFSバージョン。 意外と直感的でいいかもしれない 再帰は最大で木の要素数となる（直線）なる。制約的には2000なのでまあ多分大丈夫かなくらいの感触 */
-public class solution2_2 {
+/**
+ * いただいたコメントを元にした解法
+ * ArrayListは内部で配列をつかうので、追加、削除についてはO(n)となってしまう。なので今回みたいに繰り返し追加が行われる時にはLinkedListを使う。
+ */
+public class solution3_1 {
   public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
     List<List<Integer>> allValues = new ArrayList<>();
-    if (root == null) {
-      return allValues;
-    }
     zigzagLevelOrderHelper(root, allValues, 0);
     return allValues;
   }
@@ -15,7 +15,7 @@ public class solution2_2 {
     }
     List<Integer> currentLevelValues;
     while (allValues.size() <= level) {
-      allValues.add(new ArrayList<>());
+      allValues.add(new LinkedList<>());
     }
     currentLevelValues = allValues.get(level);
     if (level % 2 == 0) {
