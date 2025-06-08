@@ -28,15 +28,24 @@ public class solution2_1 {
     if (numOfCol == 0) {
       return 0;
     }
-
+    if (obstacleGrid[0][0] == OBSTACLE || obstacleGrid[numOfRow - 1][numOfCol - 1] == OBSTACLE) {
+      return 0;
+    }
     int[][] numOfPaths = new int[numOfRow][numOfCol];
+    numOfPaths[0][0] = 1;
     for (int c = 0; c < numOfCol; c++) {
-      if (obstacleGrid[0][c] != OBSTACLE) {
+      if (obstacleGrid[0][c] == OBSTACLE) {
+        numOfPaths[0][c] = 0;
+        break;
+      } else {
         numOfPaths[0][c] = 1;
       }
     }
     for (int r = 0; r < numOfRow; r++) {
-      if (obstacleGrid[r][0] != OBSTACLE) {
+      if (obstacleGrid[r][0] == OBSTACLE) {
+        numOfPaths[r][0] = 0;
+        break;
+      } else {
         numOfPaths[r][0] = 1;
       }
     }
