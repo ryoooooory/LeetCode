@@ -12,11 +12,7 @@
  * https://benchmarksgame-team.pages.debian.net/benchmarksgame/box-plot-summary-charts.html
  * https://github.com/niklas-heer/speed-comparison
  *
- * O(1)
  *
- * ・その他
- * せっかくなのであとで、全探索versionもかく。
- * ループは0でなく1からで良さそう。
  */
 
 public class solution1_2 {
