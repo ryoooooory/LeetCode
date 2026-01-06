@@ -37,4 +37,17 @@ public class solution2_1 {
     makeSubsets(nums, allSubset, subsetWithNum, index + 1);
     makeSubsets(nums, allSubset, subset, index + 1);
   }
+
+  // backTracking verも書いてみた。
+  private void makeSubsets(
+      int[] nums, List<List<Integer>> allSubset, List<Integer> subset, int index) {
+    if (nums.length <= index) {
+      allSubset.add(new ArrayList<>(subset));
+      return;
+    }
+    allSubset.add(nums[index]);
+    makeSubsets(nums, allSubset, subset, index + 1);
+    allSubset.remove(allSubset.size - 1);
+    makeSubsets(nums, allSubset, subset, index + 1);
+  }
 }
